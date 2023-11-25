@@ -1,4 +1,5 @@
 
+// 1. all data here 
 const loadAllDataBillioner = async () => {
     const url = `https://forbes400.onrender.com/api/forbes400/industries/technology`;
     const res = await fetch(url);
@@ -6,7 +7,7 @@ const loadAllDataBillioner = async () => {
     console.log(data);
     allBillioner(data);
 }
-
+// all data macanisum
 const allBillioner = (data) => {
     //spnnier stop
     const spinner = document.getElementById('spinner');
@@ -35,7 +36,6 @@ const allBillioner = (data) => {
 
     })
 }
-
 //add eventhandler all data
 document.getElementById('all-billionaire').addEventListener('click', function () {
     // spinner start
@@ -45,13 +45,14 @@ document.getElementById('all-billionaire').addEventListener('click', function ()
     //clear old data from main container
     const container = document.getElementById('users');
     container.innerHTML = '';
-    
+
     //richer all data
     loadAllDataBillioner();
 })
 
-//show states richer
 
+
+// 2. show states richer
 const richestByStatesData = async () => {
     const url = `https://forbes400.onrender.com/api/forbes400/states/Texas`;
     const res = await fetch(url);
@@ -59,7 +60,6 @@ const richestByStatesData = async () => {
     console.log(data);
     richestByStates(data);
 }
-
 const richestByStates = (data) => {
     //spnnier stop
     const spinner = document.getElementById('spinner');
@@ -86,7 +86,6 @@ const richestByStates = (data) => {
 
     })
 }
-
 document.getElementById('states-btn').addEventListener('click', function () {
     // spinner start
     const snipper = document.getElementById('spinner');
@@ -100,27 +99,29 @@ document.getElementById('states-btn').addEventListener('click', function () {
     richestByStatesData();
 })
 
-//show richer which are technoloy use
-const technologyData = async() =>{
+
+
+// 3. show richer which are technoloy use
+const technologyData = async () => {
     const url = `https://forbes400.onrender.com/api/forbes400/industries/technology`;
     const res = await fetch(url);
     const data = await res.json();
     technologyRicher(data);
 }
 //show technology richer
-const technologyRicher = (data)=>{
-     //spnnier stop
-     const spinner = document.getElementById('spinner');
-     spinner.classList.add('d-none');
-     //div container
-     const container = document.getElementById('users');
-     //each item
-     data.forEach(item => {
-         //create a div for card!
-         const div = document.createElement('div');
-         div.classList.add('col');
-         //Set card items
-         div.innerHTML = `
+const technologyRicher = (data) => {
+    //spnnier stop
+    const spinner = document.getElementById('spinner');
+    spinner.classList.add('d-none');
+    //div container
+    const container = document.getElementById('users');
+    //each item
+    data.forEach(item => {
+        //create a div for card!
+        const div = document.createElement('div');
+        div.classList.add('col');
+        //Set card items
+        div.innerHTML = `
          <div class="card h-100">
              <img src="${item.person.squareImage}" class="card-img-top" alt="...">
               <div class="card-body">
@@ -130,9 +131,9 @@ const technologyRicher = (data)=>{
            <p class="card-footer">Position: ${item.position}</p>
          </div>
          `;
-         container.appendChild(div);
- 
-     })
+        container.appendChild(div);
+
+    })
 }
 //technoloy btn Eventhandler
 document.getElementById('technology').addEventListener('click', function () {
@@ -142,7 +143,45 @@ document.getElementById('technology').addEventListener('click', function () {
     //clear old data from main container
     const container = document.getElementById('users');
     container.innerHTML = '';
-    
+
     //Technology richer data call
     technologyData();
 })
+
+
+//3. limited data 
+const limitedData = async () => {
+    const url = `https://forbes400.onrender.com/api/forbes400?limit=6`;
+    const res = await fetch(url);
+    const data = await res.json();
+    showLimitedData(data);
+}
+//show 10 limited data
+const showLimitedData = (data) => {
+    //spnnier stop
+    const spinner = document.getElementById('spinner');
+    spinner.classList.add('d-none');
+    //div container
+    const container = document.getElementById('users');
+    //each item
+    data.forEach(item => {
+        //create a div for card!
+        const div = document.createElement('div');
+        div.classList.add('col');
+        //Set card items
+        div.innerHTML = `
+            <div class="card h-100">
+                <img src="${item.person.squareImage}" class="card-img-top" alt="...">
+                 <div class="card-body">
+                    <h5 class="card-title">${item.person.name}</h5>
+                    <p class="card-text">${item.abouts}</p>
+                 </div>
+              <p class="card-footer">Position: ${item.position}</p>
+            </div>
+            `;
+        container.appendChild(div);
+
+    })
+
+}
+limitedData();
