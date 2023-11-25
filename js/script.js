@@ -1,6 +1,8 @@
 
 // 1. all data here 
 const loadAllDataBillioner = async () => {
+    
+    //fetch data from API
     const url = `https://forbes400.onrender.com/api/forbes400/industries/technology`;
     const res = await fetch(url);
     const data = await res.json();
@@ -45,6 +47,10 @@ document.getElementById('all-billionaire').addEventListener('click', function ()
     //clear old data from main container
     const container = document.getElementById('users');
     container.innerHTML = '';
+    
+    //show all btn 
+    const btnContainer = document.getElementById('btn-container');
+    btnContainer.classList.add('d-none');
 
     //richer all data
     loadAllDataBillioner();
@@ -163,6 +169,7 @@ const showLimitedData = (data) => {
     spinner.classList.add('d-none');
     //div container
     const container = document.getElementById('users');
+    container.innerHTML = '';
     //each item
     data.forEach(item => {
         //create a div for card!
@@ -183,5 +190,29 @@ const showLimitedData = (data) => {
 
     })
 
+    
+    //show all btn 
+    const btnContainer = document.getElementById('btn-container');
+    btnContainer.classList.remove('d-none');
 }
 limitedData();
+
+//show all btn handler
+document.getElementById('show-all').addEventListener('click', function () {
+
+    // // spinner start
+    const snipper = document.getElementById('spinner');
+    snipper.classList.remove('d-none');
+
+    //clear old data from main container
+    const container = document.getElementById('users');
+    container.innerHTML = '';
+
+    //show all btn 
+    const btnContainer = document.getElementById('btn-container');
+    btnContainer.classList.add('d-none');
+
+    //richer all data
+    loadAllDataBillioner();
+    
+})
