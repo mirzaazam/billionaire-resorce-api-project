@@ -15,31 +15,35 @@
     <main>
         <div class="container-fluid">
             <div class="row gap-0">
-                <div class="col-2 border" style="background-color: darkslategrey; height: 100vh;">
-                    <div class="p-4 mb-3 text-center text-white">
-                        <h3>BILLONAIRE</h3>
-                        <P>DIARY</P>
-                    </div>
-                    <div class="mb-4 d-flex flex-column gap-1">
-                        <button class="btn btn-warning fw-semibold">Add a user</span></button>
-                        <button class="btn btn-warning fw-semibold">Duoble Money</button>
-                        <button class="btn btn-warning fw-semibold">Short by rank</button>
-                        <button class="btn btn-warning fw-semibold">Calculate entire Wealth</button>
-                    </div>
-                    <div class="d-flex flex-column gap-1">
-                        <button id="all-billionaire" class="btn btn-warning fw-semibold">Shows All
-                            Billionaires</button>
-                        <button class="btn btn-warning fw-semibold">Richest by industry</button>
-                        <button class="btn btn-warning fw-semibold">Richest by states</button>
+                <!-- left side  -->
+                <div class="col-2 p-0" style="height: 100vh;">
+                    <div class="position-fixed p-3" style="background-color: darkslategrey; height: 100vh;">
+                        <div class="p-4 mb-3 text-center text-white">
+                            <h3>BILLONAIRE</h3>
+                            <P>DIARY</P>
+                        </div>
+                        <div class="mb-4 d-flex flex-column gap-1">
+                            <button class="btn btn-warning fw-semibold">Add a user</span></button>
+                            <button class="btn btn-warning fw-semibold">Duoble Money</button>
+                            <button class="btn btn-warning fw-semibold">Short by rank</button>
+                            <button class="btn btn-warning fw-semibold">Calculate entire Wealth</button>
+                        </div>
+                        <div class="d-flex flex-column gap-1">
+                            <button id="all-billionaire" class="btn btn-warning fw-semibold">Shows All
+                                Billionaires</button>
+                            <button id="technology" class="btn btn-warning fw-semibold">Richest by industry</button>
+                            <button id="states-btn" class="btn btn-warning fw-semibold">Richest by states</button>
+                        </div>
                     </div>
                 </div>
+                <!-- container -->
                 <div class="col p-0">
                     <div class="d-flex justify-content-between align-items-center p-3">
                         <span><input class="form-control" type="text" placeholder="Search"></span>
                         <img style="max-width: 100px;" src="./images/logo/logo1.png" alt="">
                     </div>
                     <div class="p-4 rounded" style="height: 100%; background-color: rgb(243, 241, 241);">
-                        <h5>Hello, User!</h5>
+                        <h5 class="text-center">Hello, User!</h5>
                         <!-- //spinner// -->
                         <div id="spinner" style="height: 200px;" class="d-none d-flex align-items-center justify-content-center">
                             <div class="spinner-border" role="status">
